@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8"?><!--Main layout of app to choose catgeory of word list-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,9 +13,9 @@
         android:layout_weight="1"
         android:background="@color/category_numbers">
     <TextView
-        android:layout_height="match_parent"
         android:id="@+id/numbers"
         style="@style/CategoryStyle"
+        android:layout_height="match_parent"
         android:background="?android:attr/selectableItemBackground"
         android:text="@string/category_numbers" />
     </FrameLayout>
@@ -27,9 +26,9 @@
         android:layout_weight="1"
         android:background="@color/category_family">
     <TextView
-        android:layout_height="match_parent"
         android:id="@+id/family"
         style="@style/CategoryStyle"
+        android:layout_height="match_parent"
         android:background="?android:attr/selectableItemBackground"
         android:text="@string/category_family" />
     </FrameLayout>
@@ -40,9 +39,9 @@
         android:layout_weight="1"
         android:background="@color/category_colors">
     <TextView
-        android:layout_height="match_parent"
         android:id="@+id/colors"
         style="@style/CategoryStyle"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/category_colors" />
     </FrameLayout>
@@ -53,9 +52,9 @@
         android:layout_weight="1"
         android:background="@color/category_phrases">
     <TextView
-        android:layout_height="match_parent"
         android:id="@+id/phrases"
         style="@style/CategoryStyle"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="?android:attr/selectableItemBackground"
         android:text="@string/category_phrases"/>

@@ -8,8 +8,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.android.frenchapp.R;
+
 import java.util.ArrayList;
 
+/**
+ * ListView for showing information about each word and translation
+ * added Media player to playaudio after click on each item in listview
+ * added audiomanager to manage focus of audio
+ */
 public class FamilyActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer = new MediaPlayer();
@@ -100,6 +107,10 @@ public class FamilyActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Override onStop to realase mediaplayer and stop music after
+     * quitting a layout
+     */
     @Override
     protected void onStop() {
         super.onStop();

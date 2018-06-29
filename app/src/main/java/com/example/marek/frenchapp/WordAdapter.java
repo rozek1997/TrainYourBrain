@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.android.frenchapp.R;
+
 import java.util.ArrayList;
 
 
@@ -19,6 +21,10 @@ import java.util.ArrayList;
  * Created by marek on 17.04.2018.
  */
 
+
+/**
+ * Custom WordAdapter to show custom layout in listview
+ */
 public class WordAdapter extends ArrayAdapter<Word> {
 
     private int itemColor;
@@ -32,6 +38,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
         this.itemColor = itemColor;
     }
 
+    /**
+     * showing custom view in listview on each position
+     * default view is a single/double textview definied in android.R....
+     *
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -45,7 +60,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word currentAndroidFlavor = getItem(position);
 
         ImageView image = (ImageView) listItemView.findViewById(R.id.imageView);
-        if (currentAndroidFlavor.hasImage()) {
+        if (currentAndroidFlavor.hasImage()) { //if word to recycle in listview has an image
             image.setImageResource(currentAndroidFlavor.getImageResourceId());
             image.setVisibility(View.VISIBLE);
         } else {
@@ -57,6 +72,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.first);
         // set this text on the name TextView
         nameTextView.setText(currentAndroidFlavor.getDefaultTranslation());
+        //textAppearance is better to use instead of setTextSize
+        //textApperance is predefined size on andorid sdk for specific phone
         nameTextView.setTextAppearance(getContext(), android.R.style.TextAppearance_DeviceDefault_Medium);
         nameTextView.setTextColor(listItemView.getResources().getColor(R.color.textColor));
         nameTextView.setGravity(Gravity.BOTTOM);
@@ -70,12 +87,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         numberTextView.setGravity(Gravity.TOP);
 
         View textItem = listItemView.findViewById(R.id.textItem);
+        //contextcopmat use to get resource(color) safely
         int color = ContextCompat.getColor(listItemView.getContext(), itemColor);
         textItem.setBackgroundColor(color);
 
         View playButton = listItemView.findViewById(R.id.playButton);
-        if (currentAndroidFlavor.hasMusic()) {
-            playButton.setVisibility(View.VISIBLE);
+        if (currentAndroidFlavor.hasMusic()) { //if word hasnt go an audio to play
+            playButton.setVisibility(View.VISIBLE); //show playbutton
             playButton.setBackgroundColor(color);
         } else {
             playButton.setVisibility(View.GONE);

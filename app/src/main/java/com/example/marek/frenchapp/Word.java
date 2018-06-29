@@ -4,6 +4,9 @@ package com.example.marek.frenchapp;
  * Created by marek on 16.04.2018.
  */
 
+/**
+ * store inforamtion about word
+ */
 public class Word {
 
     /**
